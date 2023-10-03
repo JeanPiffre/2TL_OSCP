@@ -1,1 +1,17 @@
+site_name: 2TL HTB
+site_author: 'JeanPiffre'
 
+theme:
+  name: 'material'
+
+nav:
+  - Accueil: 'index.md'
+  - Guide:
+    - Méthodologie: 'guide/methodology.md'
+    - Ports UDP/TCP: 'guide/port.md'
+  - Outils:
+    - Nmap: 'tools/nmap.md'
+
+plugins:
+    - search
+    - mermaid2
