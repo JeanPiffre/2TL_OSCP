@@ -14,3 +14,9 @@ Ffuf (Fuzz Faster U Fool) est un outil rapide et efficace pour le fuzzing, qui a
     ```
 
 ## Utilisations
+
+### Recherche de Répertoires Cachés
+
+```bash
+ffuf -w /path/to/wordlist -u https://$ip/FUZZ
+```

@@ -12,7 +12,12 @@ GoBuster est un outil écrit en Go qui permet aux testeurs de pénétration et a
     go get github.com/OJ/gobuster
     wget https://github.com/OJ/gobuster/releases/download/v3.1.0/gobuster-linux-amd64.7z
     7z x gobuster-linux-amd64.7z
-
     ```
 
 ## Utilisations
+
+### Recherche de Répertoires Cachés
+
+```bash
+gobuster dir -u https://$ip/ -w /path/to/wordlist
+```
