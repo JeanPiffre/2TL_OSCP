@@ -10,20 +10,27 @@ echo "$ip domaine.extension" | sudo tee -a /etc/hosts
 
 ## Fuzzing
 
-### DirB
+### Outils
+
+=== "DirB"
 
 ```bash
 dirb http://$ip/ /path/to/wordlist
 ```
 
-### Ffuf
+=== "Ffuf"
 
 ```bash
 ffuf -w /path/to/wordlist -u https://$ip/FUZZ
 ```
 
-### GoBuster
+=== "GoBuster"
 
 ```bash
 gobuster dir -u https://$ip/ -w /path/to/wordlist
 ```
+
+### Fichier Interessant 
+
+- Fichier de **sessions**
+-
