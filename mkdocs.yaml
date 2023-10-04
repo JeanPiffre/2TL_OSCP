@@ -22,10 +22,17 @@ theme:
 nav:
   - Accueil: 'index.md'
   - Guide:
-    - Méthodologie: 'guide/methodology.md'
-    - Ports UDP/TCP: 'guide/port.md'
+    - Méthodologie Web: 'guide/metho_web.md'
   - Outils:
-    - Nmap: 'tools/nmap.md'
+    - Enumération: 
+      - Nmap: 'tools/enumeration/nmap.md'
+    - Web: 
+      - DirB: 'tools/web/dirb.md'
+      - Ffuf: 'tools/web/ffuf.md'
+      - GoBuster: 'tools/web/gobuster.md'
+  - Write Up:
+    - HTB: 
+      - CozyHosting: 'writeup/htb/CozyHosting.md'
 
 # Extensions Markdown
 markdown_extensions:
@@ -51,3 +58,7 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - tags
+  

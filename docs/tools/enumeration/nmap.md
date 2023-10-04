@@ -42,7 +42,13 @@ brew install nmap
 ### Stealth scan using SYN
 
 ```bash
-nmap -oN nmap2.txt -v -sU -sS -p- -A -T4 $ip
+nmap  -sU -sS -sC -p- -A -T4 $ip
+```
+
+### Stealth scan using SYN
+
+```bash
+nmap -oN nmap2.txt -sV -sU -sS -sC -p- -A -T4 $ip
 ```
 
 ### Basic TCP Scan with Output
