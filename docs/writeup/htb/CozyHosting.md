@@ -135,11 +135,18 @@ Target: http://cozyhosting.htb/
 Task Completed
 ```
 
-On observe la présence d'un fichier de sessions `/actuator/;/sessions`
+On observe la présence de fichier :
+- Sessions `/actuator/;/sessions`
+- Login `/;/login`
+- Admin `/;/admin`
+
 
 #### Sessions
 
-Sur la page web `http://cozyhosting.htb/actuator/sessions`, on trouve une base de données `JSON` avec les ID d'une sessions.
+Sur la page web `http://cozyhosting.htb/actuator/sessions`, on trouve une base de données `JSON` avec les cookies d'une sessions.
 
 ![Page web de session](img_CozyHosting/sessions_json.JPG)
 
+Aller sur la page de login `http://cozyhosting.htb/login` et rentrer des identifiants pour avoir une session avec des cookies, puis changer les cookies avec ceux trouvé avant de recharger la page.
+
+++f12++ ou ++ctrl+shift+i++
