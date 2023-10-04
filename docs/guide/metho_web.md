@@ -1,5 +1,13 @@
 # Methodologie Web
 
+## Hosts
+
+Si le site n'est pas accessible, ajouter l'adresse dans /etc/hosts
+
+```bash
+echo "$ip domaine.extension" | sudo tee -a /etc/hosts
+```
+
 ## Fuzzing
 
 ### DirB
